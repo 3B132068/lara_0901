@@ -13,12 +13,16 @@
     <div class="alert alert-danger alert-dismissible" role="alert" id="liveAlert">
         <strong>錯誤！</strong> 請修正以下問題：
         <ul>
-            <li>錯誤 1</li>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
         </ul>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
-    
+
+    @include('admin.layouts.partials.validation')
+
     <form action="{{ route('admin.posts.store') }}" method="POST" role="form">
         @method('POST')
         @csrf
