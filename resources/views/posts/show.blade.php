@@ -3,6 +3,8 @@
 @section('page-title', 'Blog Post')
 
 @section('page-style')
+
+@section('title', $post->title)
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{ asset('css/posts-styles.css') }}" rel="stylesheet"/>
 @endsection
@@ -17,7 +19,8 @@
                     <!-- Post header-->
                     <header class="mb-4">
                         <!-- Post title-->
-                        <h1 class="fw-bolder mb-1">{{ $post->title }}</h1>
+                        <h1>{{ $post->title }}</h1>
+                        <h2 class="subheading"></h2>
                         <!-- Post meta content-->
                         <div class="text-muted fst-italic mb-2">Posted on {{ $post->updated_at->toDateTimeString() }} by Start Bootstrap</div>
                         <!-- Post categories-->
@@ -30,7 +33,7 @@
                     </figure>
                     <!-- Post content-->
                     <section class="mb-5">
-                        {!! $post->content !!}
+                        {{ $post->content }}
                     </section>
                 </article>
                 <!-- Comments section-->
